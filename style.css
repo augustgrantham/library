@@ -1,0 +1,26 @@
+header {
+    text-align:center;
+}
+body {
+    display: grid;
+    align-items: center;
+    justify-content: center;
+}
+.shelf {
+    width:75vw;
+    height:75vh;
+    border: 0.25vw solid rgb(0, 0, 0);
+    padding:0.5vw;
+    display:grid;
+    grid-template-rows: repeat(2, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap:2vw;
+}
+
+.bookCard {
+    border: 0.25vw solid rgb(0, 0, 0);
+    display:grid;
+    grid-template-rows:3fr 2fr 1fr;
+    justify-content: center;
+}
+
