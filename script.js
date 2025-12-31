@@ -7,7 +7,7 @@ const submitBook = document.querySelector(".submit");
 const title = document.getElementById("title");
 const author = document.getElementById("author");
 const pages = document.getElementById("pages");
-const read = document.getElementById("read");
+const readFormBox = document.getElementById("read");
 
 //delete button references
 
@@ -58,7 +58,7 @@ function updateShelf() {
     let booksOnShelf = "";
     for (let book of myLibrary) {
         let id = book.id;
-        let read = book.read ? "checked" : "";
+        let read = (book.read ? "checked" : "");
         booksOnShelf += `<div class="bookCard ` + read + `">
             <div class="title">
                 <p> ` + book.title + `</p>
@@ -102,7 +102,7 @@ readBox.forEach((box) => {
 
 function submitBookForm(event) {
     if(title.value != "" && author.value != "" && pages.value != "") {
-        addBookToLibrary(title.value, author.value,pages.value, read.value);
+        addBookToLibrary(title.value, author.value,pages.value, readFormBox.checked);
     updateShelf();
     }
     else {
@@ -111,6 +111,7 @@ function submitBookForm(event) {
     title.value = "";
     author.value = "";
     pages.value = "";
+    readFormBox.value = "";
     dialog.close();
     dialog.style.display = "none";
 }
@@ -125,9 +126,6 @@ function toggleRead(id) {
 }
 
 addBookToLibrary("The Lightening Thief", "Rick Riordan", 377, true);
-addBookToLibrary("Porky", "Donald Duck", 156, true);
-addBookToLibrary("Porky", "Donald Duck", 156, false);
-addBookToLibrary("Porky", "Donald Duck", 156, true);
-addBookToLibrary("Porky", "Donald Duck", 156, true);
+
 
 updateShelf();
