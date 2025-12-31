@@ -20,7 +20,7 @@ body {
 .bookCard {
     border: 0.15em solid rgb(0, 0, 0);
     display:grid;
-    grid-template-rows:5vh 5vh 2vh;
+    grid-template-rows:5vh 5vh 2vh 2vh;
     justify-items: center;
     align-items: center;
     height:20vh;
@@ -71,4 +71,8 @@ dialog input {
 
 dialog input[type="button"] {
     margin-top: 2em;
+}
+
+.delete input[type = "button"] {
+    margin-top:1.5em;
 }
