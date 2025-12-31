@@ -1,5 +1,6 @@
 const myLibrary = [];
-
+const shelf = document.querySelector(".shelf");
+const addBook = document.querySelector("add");
 function Book(title, author, pages, read) {
     this.title = title
     this.author = author;
@@ -10,10 +11,26 @@ function Book(title, author, pages, read) {
 
 function addBookToLibrary(title, author, pages, read) {
   // take params, create a book then store it in the array
-  let newBook = new Book(title, author, pages, read);
-  myLibrary.push(newBook);
+  myLibrary.push(new Book(title, author, pages, read));
 }
 
 addBookToLibrary("The Lightening Thief", "Rick Riordan", 377, true);
+addBookToLibrary("Porky", "Donald Duck", 156, true);
+let booksOnShelf = "";
 
-console.log(myLibrary);
+for (let book of myLibrary) {
+    booksOnShelf += `<div class="bookCard">
+            <div class="title">
+                <p> ` + book.title + `</p>
+            </div>
+            <div class="author">
+                <p>` + book.author + `</p>
+            </div>
+            <div class="pages">
+                <p>` + book.pages + `</p>
+            </div>
+        </div>
+        `;
+}
+
+shelf.innerHTML += booksOnShelf;
