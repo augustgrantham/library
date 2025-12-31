@@ -10,8 +10,6 @@ const pages = document.getElementById("pages");
 
 //delete button references
 
-const deleteButtons = document.querySelectorAll(".deleteBtn");
-
 function Book(title, author, pages, read) {
     this.title = title
     this.author = author;
@@ -34,13 +32,6 @@ submitBook.addEventListener("click", (event) => {
     event.preventDefault();
 });
 
-deleteButtons.forEach((button) => {
-    console.log("button");
-    /*
-    button.addEventListener("click", () => {
-        deleteBook(button.dataset.id)});
-        */
-});
 
 
 
@@ -51,7 +42,15 @@ function addBookToLibrary(title, author, pages, read) {
 }
 
 function deleteBook(id) {
-    console.log("Clicked");
+    console.log(id);
+    let index = 0;
+    for(let book of myLibrary) {
+        if(book.id == id) {
+            myLibrary.splice(index, 1);
+            updateShelf();
+        }
+        index++;
+    }
 }
 
 function updateShelf() {
@@ -74,8 +73,18 @@ function updateShelf() {
         </div>
         `;
  
-}
+    }
 shelf.innerHTML = booksOnShelf;
+
+const deleteButtons = document.querySelectorAll(".deleteBtn");
+
+deleteButtons.forEach((button) => {
+    
+    button.addEventListener("click", () => {
+        deleteBook(button.dataset.id)});
+        
+});
+
 }
 
 function submitBookForm(event) {
@@ -101,5 +110,3 @@ addBookToLibrary("Porky", "Donald Duck", 156, true);
 addBookToLibrary("Porky", "Donald Duck", 156, true);
 
 updateShelf();
-
-console.log(myLibrary);
