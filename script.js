@@ -1,6 +1,7 @@
+//html references
 const myLibrary = [];
 const shelf = document.querySelector(".shelf");
-const addBook = document.querySelector("add");
+const addBook = document.querySelector(".add");
 function Book(title, author, pages, read) {
     this.title = title
     this.author = author;
@@ -8,7 +9,7 @@ function Book(title, author, pages, read) {
     this.read = read;
     this.id = crypto.randomUUID();
 }
-
+//functions
 function addBookToLibrary(title, author, pages, read) {
   // take params, create a book then store it in the array
   myLibrary.push(new Book(title, author, pages, read));
@@ -32,5 +33,12 @@ for (let book of myLibrary) {
         </div>
         `;
 }
+
+function test() {
+    console.log("I work");
+}
+//event listener
+
+addBook.addEventListener("click", test);
 
 shelf.innerHTML += booksOnShelf;
