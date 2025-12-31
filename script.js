@@ -7,6 +7,7 @@ const submitBook = document.querySelector(".submit");
 const title = document.getElementById("title");
 const author = document.getElementById("author");
 const pages = document.getElementById("pages");
+const read = document.getElementById("read");
 
 //delete button references
 
@@ -57,7 +58,8 @@ function updateShelf() {
     let booksOnShelf = "";
     for (let book of myLibrary) {
         let id = book.id;
-        booksOnShelf += `<div class="bookCard">
+        let read = book.read ? "checked" : "";
+        booksOnShelf += `<div class="bookCard ` + read + `">
             <div class="title">
                 <p> ` + book.title + `</p>
             </div>
@@ -70,14 +72,19 @@ function updateShelf() {
             <div class="delete">
                 <input class="deleteBtn" type="button" name="deleteBook" value="Delete" data-id="` + id + `">
             </div>
+            <div class="read">
+            <p>Read</p>
+            <input class="read" type="checkbox" data-id="` + id + `"` + read + `>
+            </div>
         </div>
         `;
  
     }
 shelf.innerHTML = booksOnShelf;
-
+//update query for delete buttons and read status
 const deleteButtons = document.querySelectorAll(".deleteBtn");
 
+const readBox = document.querySelectorAll(".read");
 deleteButtons.forEach((button) => {
     
     button.addEventListener("click", () => {
@@ -85,11 +92,17 @@ deleteButtons.forEach((button) => {
         
 });
 
+readBox.forEach((box) => {
+    box.addEventListener("click", () => {
+        toggleRead(box.dataset.id);
+        console.log(myLibrary);
+    });
+});
 }
 
 function submitBookForm(event) {
     if(title.value != "" && author.value != "" && pages.value != "") {
-        addBookToLibrary(title.value, author.value,pages.value);
+        addBookToLibrary(title.value, author.value,pages.value, read.value);
     updateShelf();
     }
     else {
@@ -102,10 +115,18 @@ function submitBookForm(event) {
     dialog.style.display = "none";
 }
 
+function toggleRead(id) {
+    for(book of myLibrary) {
+        if(book.id == id) {
+            book.read == true ? book.read = false : book.read = true;
+        }
+    }
+    updateShelf();
+}
 
 addBookToLibrary("The Lightening Thief", "Rick Riordan", 377, true);
 addBookToLibrary("Porky", "Donald Duck", 156, true);
-addBookToLibrary("Porky", "Donald Duck", 156, true);
+addBookToLibrary("Porky", "Donald Duck", 156, false);
 addBookToLibrary("Porky", "Donald Duck", 156, true);
 addBookToLibrary("Porky", "Donald Duck", 156, true);
 

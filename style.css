@@ -18,20 +18,24 @@ body {
 }
 
 .bookCard {
+    background-color: blueviolet;
     border: 0.15em solid rgb(0, 0, 0);
     display:grid;
     grid-template-rows:5vh 5vh 2vh 2vh;
-    justify-items: center;
-    align-items: center;
+    grid-template-columns: 1fr;
+    justify-content: center;
+    align-content: center;
     height:20vh;
     width:15vw;
     text-align: center;
+    
     padding-top:0.5em;
+    
 }
 
 
-.title p {
-    font-size:1em;
+.title {
+    font-size:1.25vw;
     font-weight: 800;
 
 }
@@ -75,4 +79,26 @@ dialog input[type="button"] {
 
 .delete input[type = "button"] {
     margin-top:1.5em;
+}
+
+
+.read input[type="checkbox"] {
+    margin-top:1em;
+    margin-left:0.2em;
+}
+
+.read {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    margin-top:0.5em;
+}
+
+.read p {
+    font-size: .65em;
+    margin-bottom:0;
+}
+
+.bookCard.checked {
+    background-color: green;
 }
