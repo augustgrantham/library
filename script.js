@@ -2,6 +2,8 @@
 const myLibrary = [];
 const shelf = document.querySelector(".shelf");
 const addBook = document.querySelector(".add");
+const dialog = document.querySelector("dialog");
+const submitBook = document.querySelector("dialog button");
 function Book(title, author, pages, read) {
     this.title = title
     this.author = author;
@@ -16,6 +18,9 @@ function addBookToLibrary(title, author, pages, read) {
 }
 
 addBookToLibrary("The Lightening Thief", "Rick Riordan", 377, true);
+addBookToLibrary("Porky", "Donald Duck", 156, true);
+addBookToLibrary("Porky", "Donald Duck", 156, true);
+addBookToLibrary("Porky", "Donald Duck", 156, true);
 addBookToLibrary("Porky", "Donald Duck", 156, true);
 let booksOnShelf = "";
 
@@ -34,11 +39,14 @@ for (let book of myLibrary) {
         `;
 }
 
-function test() {
-    console.log("I work");
-}
 //event listener
 
-addBook.addEventListener("click", test);
+addBook.addEventListener("click", () => {
+    dialog.showModal();
+});
+
+submitBook.addEventListener("click", () => {
+    dialog.close();
+});
 
 shelf.innerHTML += booksOnShelf;
