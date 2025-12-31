@@ -58,8 +58,8 @@ function updateShelf() {
     let booksOnShelf = "";
     for (let book of myLibrary) {
         let id = book.id;
-        let read = (book.read ? "checked" : "");
-        booksOnShelf += `<div class="bookCard ` + read + `">
+        let read = (book.read ? " checked" : "");
+        booksOnShelf += `<div class="bookCard` + read + `">
             <div class="title">
                 <p> ` + book.title + `</p>
             </div>

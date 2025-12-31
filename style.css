@@ -18,7 +18,7 @@ body {
 }
 
 .bookCard {
-    background-color: blueviolet;
+    background-color: rgb(182, 127, 235);
     border: 0.15em solid rgb(0, 0, 0);
     display:grid;
     grid-template-rows:5vh 5vh 2vh 2vh;
