@@ -3,7 +3,7 @@ const myLibrary = [];
 const shelf = document.querySelector(".shelf");
 const addBook = document.querySelector(".add");
 const dialog = document.querySelector("dialog");
-const submitBook = document.querySelector("dialog button");
+const submitBook = document.querySelector(".submit");
 function Book(title, author, pages, read) {
     this.title = title
     this.author = author;
@@ -43,9 +43,11 @@ for (let book of myLibrary) {
 
 addBook.addEventListener("click", () => {
     dialog.showModal();
+    dialog.style.display = "grid";
 });
 
 submitBook.addEventListener("click", () => {
+    
     dialog.close();
 });
 
