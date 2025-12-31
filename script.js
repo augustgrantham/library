@@ -4,6 +4,9 @@ const shelf = document.querySelector(".shelf");
 const addBook = document.querySelector(".add");
 const dialog = document.querySelector("dialog");
 const submitBook = document.querySelector(".submit");
+const title = document.getElementById("title");
+const author = document.getElementById("author");
+const pages = document.getElementById("pages");
 function Book(title, author, pages, read) {
     this.title = title
     this.author = author;
@@ -23,9 +26,11 @@ addBookToLibrary("Porky", "Donald Duck", 156, true);
 addBookToLibrary("Porky", "Donald Duck", 156, true);
 addBookToLibrary("Porky", "Donald Duck", 156, true);
 addBookToLibrary("Porky", "Donald Duck", 156, true);
-let booksOnShelf = "";
 
-for (let book of myLibrary) {
+function updateShelf() {
+    let booksOnShelf = "";
+    for (let book of myLibrary) {
+        
     booksOnShelf += `<div class="bookCard">
             <div class="title">
                 <p> ` + book.title + `</p>
@@ -39,6 +44,9 @@ for (let book of myLibrary) {
         </div>
         `;
 }
+shelf.innerHTML = booksOnShelf;
+}
+
 
 //event listener
 
@@ -47,15 +55,25 @@ addBook.addEventListener("click", () => {
     dialog.style.display = "grid";
 });
 
-submitBook.addEventListener("click", () => {
+submitBook.addEventListener("click", (event) => {
     submitBookForm();
+    event.preventDefault();
 });
 
 function submitBookForm(event) {
-    event.preventDefault();
+    if(title.value != "" && author.value != "" && pages.value != "") {
+        addBookToLibrary(title.value, author.value,pages.value);
+    updateShelf();
+    }
+    else {
+        alert("Please fill out all fields.")
+    }
+    title.value = "";
+    author.value = "";
+    pages.value = "";
     dialog.close();
+    dialog.style.display = "none";
 }
 
 
-
-shelf.innerHTML += booksOnShelf;
+updateShelf();
