@@ -17,6 +17,7 @@ function addBookToLibrary(title, author, pages, read) {
   myLibrary.push(new Book(title, author, pages, read));
 }
 
+
 addBookToLibrary("The Lightening Thief", "Rick Riordan", 377, true);
 addBookToLibrary("Porky", "Donald Duck", 156, true);
 addBookToLibrary("Porky", "Donald Duck", 156, true);
@@ -47,8 +48,14 @@ addBook.addEventListener("click", () => {
 });
 
 submitBook.addEventListener("click", () => {
-    
-    dialog.close();
+    submitBookForm();
 });
+
+function submitBookForm(event) {
+    event.preventDefault();
+    dialog.close();
+}
+
+
 
 shelf.innerHTML += booksOnShelf;
