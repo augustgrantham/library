@@ -1,3 +1,7 @@
+* {
+    box-sizing: border-box;
+}
+
 header {
     text-align:center;
 }
@@ -21,16 +25,16 @@ body {
     background-color: rgb(182, 127, 235);
     border: 0.15em solid rgb(0, 0, 0);
     display:grid;
-    grid-template-rows:5vh 5vh 2vh 2vh;
+    grid-template-rows:5vh 5vh 5vh 2vh;
     grid-template-columns: 1fr;
     justify-content: center;
     align-content: center;
-    height:20vh;
+    height:25vh;
     width:15vw;
     text-align: center;
     
     padding-top:0.5em;
-    
+    padding-bottom:0.5em;
 }
 
 
@@ -77,11 +81,12 @@ dialog input[type="button"] {
     margin-top: 2em;
 }
 
-.delete input[type = "button"] {
-    margin-top:1.5em;
+.delete {
+    padding:1em;
+    display:grid;
+    align-content: center;
+    justify-content: center;
 }
-
-
 .read input[type="checkbox"] {
     margin-top:1em;
     margin-left:0.2em;
@@ -91,7 +96,7 @@ dialog input[type="button"] {
     display: flex;
     justify-content: end;
     align-items: center;
-    margin-top:0.5em;
+    margin-top:1.5em;
 }
 
 .read p {
