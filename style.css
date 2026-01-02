@@ -107,3 +107,7 @@ dialog input[type="button"] {
 .bookCard.checked {
     background-color: rgb(116, 230, 116);
 }
+
+#read {
+    width:1em;
+}
