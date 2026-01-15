@@ -11,12 +11,14 @@ const readFormBox = document.getElementById("read");
 
 //delete button references
 
-function Book(title, author, pages, read) {
-    this.title = title
-    this.author = author;
-    this.pages = pages;
-    this.read = read;
-    this.id = crypto.randomUUID();
+class Book {
+    constructor(title, author, pages, read) {
+        this.title = title
+        this.author = author;
+        this.pages = pages;
+        this.read = read;
+        this.id = crypto.randomUUID();
+    }
 }
 
 
@@ -24,8 +26,9 @@ function Book(title, author, pages, read) {
 //event listeners
 
 addBook.addEventListener("click", () => {
+    dialog.style.display = "flex";
     dialog.showModal();
-    dialog.style.display = "grid";
+    
 });
 
 submitBook.addEventListener("click", (event) => {
