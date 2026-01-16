@@ -19,6 +19,11 @@ class Book {
         this.read = read;
         this.id = crypto.randomUUID();
     }
+
+    toggleRead() {
+        this.read == true ? this.read = false : this.read = true;
+    }
+    
 }
 
 
@@ -122,7 +127,7 @@ function submitBookForm(event) {
 function toggleRead(id) {
     for(book of myLibrary) {
         if(book.id == id) {
-            book.read == true ? book.read = false : book.read = true;
+            book.toggleRead();
         }
     }
     updateShelf();
